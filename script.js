@@ -35,21 +35,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const trendingSlider = document.querySelector('.trending-products .product-slider');
 
     if (featuredSlider) {
-        products.forEach(product => {
-            const productCard = `
-                <div class="product-card">
-                    <img src="${product.image}" alt="${product.name}">
-                    <div class="product-card-content">
-                        <h3>${product.name}</h3>
-                        <p>${product.price}</p>
-                        <a href="product-details.html" class="btn">View Details</a>
-                    </div>
-                </div>
-            `;
-            featuredSlider.innerHTML += productCard;
-            newArrivalsSlider.innerHTML += productCard;
-            trendingSlider.innerHTML += productCard;
-        });
+        fetch('http://localhost:5000/products/')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(product => {
+                    const productCard = `
+                        <div class="product-card">
+                            <img src="${product.image}" alt="${product.name}">
+                            <div class="product-card-content">
+                                <h3>${product.name}</h3>
+                                <p>$${product.price}</p>
+                                <a href="product-details.html?id=${product._id}" class="btn">View Details</a>
+                            </div>
+                        </div>
+                    `;
+                    featuredSlider.innerHTML += productCard;
+                    newArrivalsSlider.innerHTML += productCard;
+                    trendingSlider.innerHTML += productCard;
+                });
+            });
     }
 
     const checkoutForm = document.querySelector('.checkout-form');

@@ -67,52 +67,23 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const gridContainer = document.querySelector('.grid-container');
-            const products = [
-                {
-                    name: 'Product 1',
-                    image: 'images/product1.jpg',
-                    price: '$19.99',
-                },
-                {
-                    name: 'Product 2',
-                    image: 'images/product2.jpg',
-                    price: '$29.99',
-                },
-                {
-                    name: 'Product 3',
-                    image: 'images/product3.jpg',
-                    price: '$39.99',
-                },
-                {
-                    name: 'Product 4',
-                    image: 'images/product4.jpg',
-                    price: '$49.99',
-                },
-                {
-                    name: 'Product 5',
-                    image: 'images/product5.jpg',
-                    price: '$59.99',
-                },
-                {
-                    name: 'Product 6',
-                    image: 'images/product6.jpg',
-                    price: '$69.99',
-                },
-            ];
-
-            products.forEach(product => {
-                const productCard = `
-                    <div class="product-card">
-                        <img src="${product.image}" alt="${product.name}">
-                        <div class="product-card-content">
-                            <h3>${product.name}</h3>
-                            <p>${product.price}</p>
-                            <a href="#" class="btn">Add to Cart</a>
-                        </div>
-                    </div>
-                `;
-                gridContainer.innerHTML += productCard;
-            });
+            fetch('http://localhost:5000/products/')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(product => {
+                        const productCard = `
+                            <div class="product-card">
+                                <img src="${product.image}" alt="${product.name}">
+                                <div class="product-card-content">
+                                    <h3>${product.name}</h3>
+                                    <p>$${product.price}</p>
+                                    <a href="product-details.html?id=${product._id}" class="btn">View Details</a>
+                                </div>
+                            </div>
+                        `;
+                        gridContainer.innerHTML += productCard;
+                    });
+                });
         });
     </script>
 </body>
