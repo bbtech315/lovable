@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - DropCart Africa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="DropCart Africa Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="shop.html">Shop</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="shop.html?category=electronics">Electronics</a></li>
+                        <li><a href="shop.html?category=fashion">Fashion</a></li>
+                        <li><a href="shop.html?category=home">Home Goods</a></li>
+                    </ul>
+                </li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="user-actions">
+                <a href="dashboard.html" class="btn">Dashboard</a>
+                <a href="index.html" class="btn">Logout</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="dashboard">
+            <h1>Welcome to your Dashboard</h1>
+            <div class="dashboard-menu">
+                <ul>
+                    <li><a href="#" class="active">Orders</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Shipments</a></li>
+                </ul>
+            </div>
+            <div class="dashboard-content">
+                <div class="orders">
+                    <h2>Your Orders</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>12345</td>
+                                <td>2023-03-08</td>
+                                <td>Shipped</td>
+                                <td>$49.98</td>
+                            </tr>
+                            <tr>
+                                <td>67890</td>
+                                <td>2023-03-05</td>
+                                <td>Delivered</td>
+                                <td>$29.99</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="DropCart Africa Logo">
+            </div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="refund-policy.html">Refund Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
